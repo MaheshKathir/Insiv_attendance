@@ -15,10 +15,10 @@ def home(request):
 def login(request):
     return render(request, 'WebSite2038352/for_attendence.html')
 
-
-def forget(request):
-    return render(request, 'WebSite2038352/templates/forget.html')
-
-
-def register(request):
-    return render(request,'WebSite2038352/Register.html')
+#
+# def forget(request):
+#     return render(request, 'WebSite2038352/templates/forget.html')
+#
+#
+# def register(request):
+#     return render(request,'WebSite2038352/Register.html')
