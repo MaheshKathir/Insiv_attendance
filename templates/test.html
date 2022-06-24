@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Check box</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+:root{
+
+}
+
+   *{box-sizing: border-box;
+}
+body{
+
+    font-family: "Roboto",sans-serif;
+    display:flex;
+    flex-direction: row;
+    align-items: start;
+    justify-content: left;
+    margin:0;
+    height:100vh;
+    overflow-x: hidden;/*cacher le scroll du bas*/
+}
+.toggle-container {
+    display:flex;
+    align-items: center;
+    margin:7px 0;
+    width:100%;
+}
+.toggle-checkbox {
+    visibility:hidden;
+}
+.label{
+    position:relative;
+    background-color: #e4e8e7;
+    border-radius: 50px;
+    cursor:pointer;
+    display:inline-block;
+    margin:0 15px 0;
+    width:40px;
+    height:17px;
+}
+.toggle-checkbox:checked+ .label{
+    background-color: #0f1313;
+}
+.ball{
+    background-color: #b047ec;
+    height:14px;
+    width:14px;
+    border-radius: 100%;
+    position:absolute;
+    top:2px;
+    left:2px;
+    align-items: center;
+    justify-content: center;
+    animation:slideOff 0.20s linear forwards;
+}
+
+.toggle-checkbox:checked+.label .ball{
+    animation:slideOn 0.3s linear forwards;
+}
+
+@keyframes slideOn{
+    0%{
+        transform:translateX(0) scale(1);
+    }
+    50%{
+        transform:translateX(15px) scale(1.2);
+    }
+    100%{
+        transform:translateX(22px) scale(1);
+    }
+}
+@keyframes slideOff{
+    0%{
+        transform:translateX(22px) scale(1);
+    }
+    50%{
+        transform:translateX(15px) scale(1.2);
+    }
+    100%{
+        transform:translateX(0px) scale(1);
+    }
+}
+    </style>
+</head>
+<body>
+    <h4>Submit Your Attendence Here:</h4>
+    <div class="toggle-container">
+        <input type="checkbox" id="good" class="toggle-checkbox">
+        <label for="good" class="label">
+            <div class="ball"></div>
+        </label>
+        <span>On Duty</span>
+    </div>
+
+    <div class="toggle-container">
+        <input type="checkbox" id="cheap" class="toggle-checkbox">
+        <label for="cheap" class="label">
+            <div class="ball"> </div>
+        </label>
+        <span>Work from Home </span>
+    </div>
+
+    <div class="toggle-container">
+        <input type="checkbox" id="speed" class="toggle-checkbox">
+        <label for="speed" class="label">
+            <div class="ball"></div>
+        </label>
+        <span>Half Day</span>
+    </div>
+
+    <div class="toggle-container">
+        <input type="checkbox" id="speed1" class="toggle-checkbox">
+        <label for="speed1" class="label">
+            <div class="ball"></div>
+        </label>
+        <span>Leave</span>
+    </div>
+
+
+    <script src="main.js"></script>
+
+<script>
+    const toggles=document.querySelectorAll(".toggle-checkbox");
+const good=document.querySelector("#good");
+const cheap=document.querySelector("#cheap");
+const fast=document.querySelector("#speed");
+const fast1=document.querySelector("#speed1");
+toggles.forEach(toggle=>toggle.addEventListener("change",(e)=>
+    dotheTrick(e.target)))
+function dotheTrick(theClickDone){
+    if(good.checked || cheap.checked || fast.checked || fast1.checked || good.checked || fast.checked || fast1.checked){
+        if(good===theClickDone){
+            fast.checked=false;
+            fast1.checked=false;
+            cheap.checked=false;
+        }
+        if(cheap===theClickDone){
+             fast1.checked=false;
+              good.checked=false;
+            fast.checked=false;
+        }
+        if(fast===theClickDone){
+            good.checked=false;
+            fast1.checked=false;
+            cheap.checked=false;
+        }
+         if(fast1===theClickDone){
+            cheap.checked=false;
+            good.checked=false;
+            fast.checked=false;
+        }
+
+    }
+}
+</script>
+</body>
+</html>
