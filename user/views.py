@@ -21,4 +21,4 @@ def forget(request):
 
 
 def register(request):
-    return render(request,'WebSite2038352/Register.html')
+    # return render(request,'WebSite2038352/Register.html')
