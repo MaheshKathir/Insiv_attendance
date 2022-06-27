@@ -99,6 +99,21 @@ def register(request):
     #
     # return render(request, "accounts/register.html", {"form": form, "msg": msg, "success": success})
 
+    # employee_id = request.POST.get('employee_id')
+    # user_name = request.POST.get('user_name')
+    # email = request.POST.get('email')
+    # dob = request.POST.get('dob')
+
+    # password = request.POST.get('password')
+    # confirm_password = request.POST.get('confirm_password')
+    # value = models.user.objects.create(employee_id=employee_id, user_name=user_name, email=email, dob=dob,
+    #
+    #                                        password=password, confirm_password=confirm_password)
+    # value.save()
+    # messages.success(request, f'Your Account has been Ready.You can log in now!')
+
+    # return render(request, 'WebSite2038352/index.html')
+
 
 def generateOTP():
     digits = "0123456789"

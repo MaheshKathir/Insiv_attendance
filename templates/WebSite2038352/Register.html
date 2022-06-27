@@ -157,7 +157,8 @@ form .user-details .input-box{
   <div class="container">
     <div class="title">Registration</div>
     <div class="content">
-      <form action="#">
+      <form action="Register_submit" method="post" enctype="multipart/form-data">
+          {% csrf_token %}
         <div class="user-details">
           <div class="input-box">
             <span class="details">Employee Id</span>
@@ -169,19 +170,19 @@ form .user-details .input-box{
           </div>
           <div class="input-box">
             <span class="details">Email</span>
-            <input type="text" name="email" placeholder="Enter your email" required>
+            <input type="email" name="email" placeholder="Enter your email" required>
           </div>
           <div class="input-box">
             <span class="details">Date of Birth</span>
-            <input type="text" name="dob" placeholder="Enter your Date of Birth" required>
+            <input type="date" name="dob" placeholder="Enter your Date of Birth" required>
           </div>
           <div class="input-box">
             <span class="details">Password</span>
-            <input type="text" name="password" placeholder="Enter your password" required>
+            <input type="password" name="password" placeholder="Enter your password" required>
           </div>
           <div class="input-box">
             <span class="details">Confirm password</span>
-            <input type="text" name="confirm_password" placeholder="Confirm your password" required>
+            <input type="password" name="confirm_password" placeholder="Confirm your password" required>
           </div>
         </div>
 {#        <div class="gender-details">#}
